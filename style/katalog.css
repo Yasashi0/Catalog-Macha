@@ -657,3 +657,140 @@ body.dark-mode .search-bar {
     grid-template-columns: 1fr;
   }
 }
+
+/* === Responsive Navbar === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 25%;
+    height: 100vh;
+    background: #57c95d;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s ease;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li {
+    margin: 1.5rem 0;
+  }
+
+  .nav-links a {
+    font-size: 1.3rem;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+}
+
+/* === Checkout Notification === */
+.checkout-notif {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(45deg, #2e7d32, #66bb6a);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 2000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-notif.show {
+  opacity: 1;
+  transform: translate(-50%, 10px);
+}
+
+
+/* Saat menu aktif, tampilkan sidebar */
+.nav-links.active {
+  right: 0;
+  transition: right 0.3s ease-in-out;
+}
+
+/* Saat hamburger diklik, ubah jadi ikon X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Pastikan hamburger tetap tampil di atas menu */
+.hamburger {
+  z-index: 1001;
+}
+.nav-links {
+  transition: right 0.3s ease;
+}
+
+/* === Cart Notification === */
+.cart-notif {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-30px);
+  background: linear-gradient(45deg, #2e7d32, #66bb6a);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3000;
+  transition: all 0.5s ease;
+}
+
+.cart-notif.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
