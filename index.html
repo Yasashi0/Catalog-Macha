@@ -14,8 +14,17 @@
   <header>
     <nav class="navbar">
       <h1 class="logo">Matcha Drinks</h1>
-      <ul class="nav-links">
-        <li> <!-- Toggle Theme Button -->
+      
+      <!-- Tombol Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li>
+          <!-- Toggle Theme Button -->
           <label class="theme-toggle">
             <input id="theme-checkbox" class="toggle-checkbox" type="checkbox">
             <div class="toggle-slot">
@@ -33,10 +42,12 @@
         <li><a href="#menu">Menu</a></li>
         <li><a href="#kontak">Kontak</a></li>
         <li><a href="#about">Tentang</a></li>
-        <li><div class="cart-icon">
-    <img src="https://cdn-icons-png.flaticon.com/512/3916/3916628.png"alt="Cart Icon" class="cart-img">
-    <span id="cart-count">0</span>
-    </div></li>
+        <li>
+          <div class="cart-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3916/3916628.png" alt="Cart Icon" class="cart-img">
+            <span id="cart-count">0</span>
+          </div>
+        </li>
       </ul>
     </nav>
   </header>
@@ -59,6 +70,7 @@
     <h2>Daftar Menu</h2>
     <input type="text" id="search-input" placeholder="Cari minuman..." class="search-bar">
     <div class="menu-grid">
+      <!-- Item menu (tetap sama seperti kode asli) -->
       <div class="menu-item" data-desc="Perpaduan matcha dan susu segar dengan rasa manis lembut.">
         <img src="assets/1.jpg" alt="Iced Matcha Latte">
         <h3>Matcha Latte</h3>
@@ -91,6 +103,7 @@
       </div>
     </div>
   </section>
+
   <!-- Kontak -->
   <section id="kontak">
     <h2>Kontak Kami</h2>
@@ -121,29 +134,34 @@
     </div>
   </section>
 
-<!-- About --> 
- <section id="about"> 
-  <h2>Tentang Kami</h2> 
-  <p>Kami menghadirkan matcha premium dengan bahan pilihan dan suasana modern yang nyaman.</p>
- </section>
+  <!-- About --> 
+  <section id="about"> 
+    <h2>Tentang Kami</h2> 
+    <p>Kami menghadirkan matcha premium dengan bahan pilihan dan suasana modern yang nyaman.</p>
+  </section>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Matcha Drinks. All rights reserved.</p>
   </footer>
-<!-- Modal Keranjang -->
-    <div id="cart-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title">Keranjang Belanja</h2>
-          <span class="close-cart">&times;</span>
-        </div>
-        <div id="cart-items"></div>
-        <p id="cart-total">Total: Rp 0</p>
-        <button id="checkout-btn" class="order-btn">Checkout</button>
-      </div>
-    </div>
 
+  <!-- Modal Keranjang -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Keranjang Belanja</h2>
+        <span class="close-cart">&times;</span>
+      </div>
+      <div id="cart-items"></div>
+      <p id="cart-total">Total: Rp 0</p>
+      <button id="checkout-btn" class="order-btn">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Notifikasi checkout -->
+  <div id="cart-notif" class="cart-notif">Item berhasil ditambahkan ke keranjang!</div>
+  <div id="checkout-notif" class="checkout-notif">Checkout berhasil! 🎉</div>
   <script src="code/katalog.js"></script>
 </body>
 </html>
+
