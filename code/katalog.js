@@ -107,10 +107,17 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     cart.push(item);
     updateCart();
-    alert(`${item.name} telah ditambahkan ke keranjang!`);
+    showCartNotif(`${item.name} telah ditambahkan ke keranjang!`);
     modal.classList.remove("show");
   });
-
+  function showCartNotif(message) {
+  const notif = document.getElementById("cart-notif");
+  notif.textContent = message;
+  notif.classList.add("show");
+  setTimeout(() => {
+    notif.classList.remove("show");
+  }, 3000);
+}
   function updateCart() {
     cartItems.innerHTML = "";
     let total = 0;
@@ -140,3 +147,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// === Responsive Navbar ===
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navLinks.classList.toggle("active");
+});
+
+// Tutup navbar jika link diklik (mode mobile)
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navLinks.classList.remove("active");
+  });
+});
+
+// === Checkout Notification ===
+const checkoutBtn = document.getElementById("checkout-btn");
+const checkoutNotif = document.getElementById("checkout-notif");
+
+checkoutBtn.addEventListener("click", () => {
+  checkoutNotif.classList.add("show");
+  setTimeout(() => checkoutNotif.classList.remove("show"), 3000);
+});
+
+
